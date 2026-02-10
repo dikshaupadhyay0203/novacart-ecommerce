@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#9333ea" />
+  <meta name="description" content="ShopEase - Your ultimate destination for online shopping. Discover amazing products at unbeatable prices with fast delivery and excellent customer service in India." />
+  <meta name="keywords" content="ecommerce, shopping, online store, products, deals, India, ShopEase, electronics, clothing, books, home garden, sports, toys, beauty, food" />
+  <meta name="author" content="ShopEase Team" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shopease.com/" />
+  <meta property="og:title" content="ShopEase - Ultimate Online Shopping Destination in India" />
+  <meta property="og:description" content="Discover amazing products at unbeatable prices. Shop electronics, clothing, books, and more with fast delivery across India. Secure payment, easy returns." />
+  <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+  <meta property="og:site_name" content="ShopEase" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://shopease.com/" />
+  <meta property="twitter:title" content="ShopEase - Ultimate Online Shopping Destination in India" />
+  <meta property="twitter:description" content="Discover amazing products at unbeatable prices. Shop electronics, clothing, books, and more with fast delivery across India." />
+  <meta property="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+  <meta property="twitter:site" content="@ShopEaseIndia" />
+  
+  <!-- Favicon and App Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+  <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg" color="#9333ea" />
+  <meta name="msapplication-TileColor" content="#9333ea" />
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <title>ShopEase - Ultimate Online Shopping Destination | Best Deals in India</title>
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ShopEase",
+    "alternateName": "ShopEase Online Store",
+    "url": "https://shopease.com",
+    "description": "Ultimate online shopping destination offering electronics, clothing, books, home products and more at best prices in India with fast delivery and secure payment",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://shopease.com?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+  <!-- Critical CSS for immediate rendering -->
+  <style>
+    :root {
+      --primary-purple: #7c3aed;
+      --primary-pink: #ec4899;
+      --primary-blue: #3b82f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #1a202c;
+    }
+
+    #root {
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    /* Enhanced Loading Spinner */
+    .loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    
+    .loading-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary-purple);
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      animation: logoFloat 2s ease-in-out infinite;
+    }
+
+    .loading-spinner {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 2rem;
+    }
+    
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-top: 4px solid #ffffff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      position: relative;
+    }
+
+    .spinner::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border: 2px solid transparent;
+      border-top: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: spin 2s linear infinite reverse;
+    }
+    
+    .loading-text {
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    .loading-subtext {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      text-align: center;
+      max-width: 300px;
+      line-height: 1.5;
+    }
+
+    .loading-progress {
+      width: 200px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      margin-top: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loading-progress::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, white, transparent);
+      animation: progressSlide 2s ease-in-out infinite;
+    }
+
+    /* Floating background elements */
+    .bg-decoration {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .bg-decoration:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      width: 100px;
+      height: 100px;
+      background: white;
+      animation-delay: 0s;
+    }
+
+    .bg-decoration:nth-child(2) {
+      top: 20%;
+      right: 10%;
+      width: 150px;
+      height: 150px;
+      background: rgba(255, 255, 255, 0.5);
+      animation-delay: 2s;
+    }
+
+    .bg-decoration:nth-child(3) {
+      bottom: 20%;
+      left: 15%;
+      width: 80px;
+      height: 80px;
+      background: white;
+      animation-delay: 4s;
+    }
+
+    .bg-decoration:nth-child(4) {
+      bottom: 30%;
+      right: 20%;
+      width: 120px;
+      height: 120px;
+      background: rgba(255, 255, 255, 0.3);
+      animation-delay: 1s;
+    }
+    
+    /* Hide loading when app loads */
+    .app-loaded .loading-container {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* Animations */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-10px) scale(1.05); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33% { transform: translateY(-20px) rotate(5deg); }
+      66% { transform: translateY(10px) rotate(-5deg); }
+    }
+
+    @keyframes progressSlide {
+      0% { left: -100%; }
+      50%, 100% { left: 100%; }
+    }
+
+    /* Responsive design */
+    @media (max-width: 640px) {
+      .loading-logo {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
+    }
+
+    /* Accessibility improvements */
+    @media (prefers-reduced-motion: reduce) {
+      .spinner,
+      .loading-logo,
+      .bg-decoration {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- No Script Fallback -->
+  <noscript>
+    <div style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      font-family: 'Inter', Arial, sans-serif;
+      padding: 2rem;
+      z-index: 10000;
+    ">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">⚡</div>
+      <h1 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 700;">JavaScript Required</h1>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; line-height: 1.6;">
+        ShopEase requires JavaScript for the best shopping experience. 
+        Please enable JavaScript in your browser settings and refresh the page.
+      </p>
+      <button onclick="window.location.reload()" style="
+        background: white;
+        color: #7c3aed;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+      ">
+        🔄 Refresh Page
+      </button>
+    </div>
+  </noscript>
+  
+  <!-- Enhanced Loading Screen -->
+  <div class="loading-container" id="loading-container">
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+    
+    <div class="loading-logo">S</div>
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+    <div class="loading-text">Loading ShopEase</div>
+    <div class="loading-subtext">
+      Preparing your ultimate shopping experience...<br>
+      Fast • Secure • Reliable
+    </div>
+    <div class="loading-progress"></div>
+  </div>
+  
+  <!-- React App Root -->
+  <div id="root"></div>
+  
+  <!-- Scripts -->
+  <script>
+    // Hide loading spinner when React app loads
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.body.classList.add('app-loaded');
+      }, 500);
+    });
+
+    // Error handling
+    window.addEventListener('error', function(e) {
+      console.error('Unhandled error:', e.error);
+    });
+
+    window.addEventListener('unhandledrejection', function(e) {
+      console.error('Unhandled promise rejection:', e.reason);
+    });
+  </script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('%PUBLIC_URL%/sw.js')
+          .then(function(registration) {
+            console.log('SW registered: ', registration);
+          })
+          .catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
